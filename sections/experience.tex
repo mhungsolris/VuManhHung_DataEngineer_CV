@@ -1,0 +1,73 @@
+\cvsection{Professional Experience}
+
+% Keep each entry, its project labels, and bullets together when reordering.
+\experienceentry{Yuta Labs}{Data Engineer}{Apr 2026 -- Present}{Full-time}
+\workproject{Near-real-time Campaign ROAS}
+\begin{cvbullets}
+  \item Owned the design and technical validation of a dual-path ROAS
+    system combining cost data from Google, Meta, TikTok, and Unity with
+    Adjust revenue; retained file-based ingestion as a reconciliation baseline
+    while the
+    callback path supported approximately 15-minute reporting freshness.
+  \item Designed durable SQLite callback buffering and batched BigQuery
+    publication, with rolling-window deduplication, scoped idempotent
+    processing, and reconciliation between revenue paths to investigate
+    reporting discrepancies.
+  \item Designed changed-hour ingestion using GCS shard-count watermarks
+    to reprocess late-arriving files, and Airflow Dataset dependencies to
+    publish shared cost data before downstream ROAS marts.
+\end{cvbullets}
+\workproject{Analytics Platform Ownership \& Redesign}
+\begin{cvbullets}
+  \item Took sole Data Engineering ownership of an inherited analytics
+    platform; reconstructed data flows and reporting contracts across
+    Airflow, BigQuery, and dbt while maintaining existing production
+    workflows.
+  \item Designed hourly GA4 ad-event
+    reporting with a seven-day reprocessing window, keyed BigQuery MERGE,
+    and reconciliation by app, country, and version to handle late updates
+    and repeatable processing.
+  \item Owned the integration design for Unity Ads cost data across three
+    reporting pipelines and defined a staged Python refactor with shared cloud operations and
+    injectable dependencies for offline replay and validation.
+\end{cvbullets}
+
+\experienceentry{L'INNO}{Data Engineer, Part-time}{Mar 2025 -- Aug 2026}
+  {Remote\enspace\textbar\enspace Concurrent role}
+\workproject{Blue Dragon Reporting Platform}
+\begin{cvbullets}
+  \item Maintained and enhanced the reporting platform, owning the existing
+    GiveCloud flow and developing the PayPal reporting extension.
+  \item Built a Python collector for four regional PayPal REST APIs
+    (Vietnam, US, UK, Australia); stored raw data in Google Cloud Storage,
+    transformed and loaded it into BigQuery, and integrated transactions with
+    GiveCloud donation data.
+  \item Designed fact and dimension models for transaction reporting, donor
+    segmentation, recurring donations, and revenue trend analysis.
+  \item Automated daily workflows with GitHub Actions, including scheduling,
+    retries, monitoring, failure investigation, and date backfills.
+  \item Built Looker Studio dashboards and mapped donor and transaction data
+    to Salesforce objects and fields.
+\end{cvbullets}
+
+\newpage
+\experienceentry{Savvycom}{Data Engineer}{Sep 2025 -- Apr 2026}
+  {Full-time\enspace\textbar\enspace Software Product Development}
+\workproject{Internal Analytics Data Pipeline}
+\begin{cvbullets}
+  \item Built ELT workflows for Timesheet, CRM, and ERP data; analyzed
+    1,600+ source tables in PostgreSQL and MariaDB to identify reporting
+    entities and exclude metadata/system tables.
+  \item Documented source-to-target mappings and developed dbt models for a
+    reporting-ready layer; orchestrated daily ingestion, transformation,
+    and validation with Airflow.
+\end{cvbullets}
+% Visual inspection of the source PDF confirms this project belongs to Savvycom.
+\workproject{Accounting BI Dashboard}
+\begin{cvbullets}
+  \item Designed a Microsoft-based accounting BI solution using OneDrive
+    files, Power Query, and Power BI; cleaned, standardized, and modeled
+    financial data for expense tracking and operational monitoring.
+  \item Built and maintained Power BI dashboards for financial reporting
+    and business analysis.
+\end{cvbullets}

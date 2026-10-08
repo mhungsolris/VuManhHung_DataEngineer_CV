@@ -1,0 +1,27 @@
+\cvsection{Projects}
+
+\projectentry{Financial Market Data Collection \& ELT Pipeline}
+  {Personal Project}{Feb 2026 -- Apr 2026}
+\begin{cvbullets}
+  \item Developed Python collectors using requests to retrieve and parse JSON
+    data for OHLC prices, company listings, financial filings, and news
+    sentiment from Polygon, Alpha Vantage, and SEC APIs.
+  \item Deployed a single-node Hadoop cluster with HDFS and YARN on Google
+    Compute Engine and configured Spark/PySpark for processing.
+  \item Validated missing values, duplicates, API response status, and schema
+    consistency before downstream processing.
+  \item Designed a DuckDB dimensional warehouse with three fact tables and
+    four shared dimensions for price, volume, company, and sentiment analysis.
+  \item Implemented Spark transformations for cleansing and warehouse
+    preparation, orchestrated end-to-end with Airflow DAGs.
+\end{cvbullets}
+
+\projectentry{Student Performance Prediction Pipeline}
+  {iBME Lab, HUST}{Jul 2025 -- Sep 2025}
+\begin{cvbullets}
+  \item Cleaned, standardized, and prepared approximately 1M student records
+    for GPA/CPA and course-grade prediction; engineered features and built
+    models with Python, Pandas, and Scikit-learn.
+  \item Developed a Streamlit application for result visualization and
+    exploratory analysis.
+\end{cvbullets}

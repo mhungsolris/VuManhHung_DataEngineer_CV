@@ -1,0 +1,102 @@
+% Compile with XeLaTeX or Tectonic (Unicode-capable XeTeX engine).
+\usepackage[margin=15mm]{geometry}
+\usepackage{fontspec}
+% XCharter provides the serif typography used by the approved visual direction.
+% Disable kerning and common ligatures so copy/paste does not split keywords
+% such as DATA or ELT in Unicode-aware extractors.
+\setmainfont{XCharter-Roman.otf}[
+  RawFeature={-kern},
+  Ligatures=NoCommon,
+  BoldFont=XCharter-Bold.otf,
+  ItalicFont=XCharter-Italic.otf,
+  BoldItalicFont=XCharter-BoldItalic.otf
+]
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks,unicode]{hyperref}
+\definecolor{cvgreen}{HTML}{0E6E55}
+\definecolor{cvgold}{HTML}{A16F0B}
+\hypersetup{
+  pdftitle={Vu Manh Hung - Data Engineer},
+  pdfauthor={Vu Manh Hung},
+  pdfsubject={Curriculum Vitae},
+  pdfdisplaydoctitle=true
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\AtBeginDocument{\fontsize{10.5pt}{13pt}\selectfont}
+\raggedright
+\raggedbottom
+% Avoid hyphenated keywords and stranded paragraph lines in extracted text.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\clubpenalty=10000
+\widowpenalty=10000
+
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{8pt}\Needspace{6\baselineskip}
+  {\color{cvgreen}\fontsize{12.5pt}{15pt}\selectfont\bfseries #1\par\nobreak}
+  \vspace{1pt}\nobreak
+  {\color{cvgold}\rule{\linewidth}{0.4pt}\par\nobreak}
+  \vspace{3pt}\nobreak
+}
+
+% All content uses ordinary paragraphs and lists in reading order.
+\newcommand{\cvheader}[2]{%
+  {\centering
+    {\color{cvgreen}\fontsize{25pt}{28pt}\selectfont\bfseries #1\par}
+    \vspace{2pt}
+    {\fontsize{11pt}{14pt}\selectfont\bfseries #2\par}
+    \vspace{5pt}
+    {\color{cvgold}\rule{\linewidth}{0.4pt}\par}
+    \vspace{2pt}
+    {\fontsize{9.5pt}{12pt}\selectfont
+      \cvphone\enspace\textbar\enspace\cvlocation\enspace\textbar\enspace
+      \href{mailto:\cvemail}{\cvemail}\enspace\textbar\enspace
+      \href{https://\cvlinkedin}{\cvlinkedin}\par}
+    \vspace{2pt}
+    {\color{cvgold}\rule{\linewidth}{0.4pt}\par}
+  }
+  \vspace{2pt}
+}
+
+% Render a left label and right-aligned date on one line when they fit. Long
+% labels fall back to a separate right-aligned date line without overlap.
+\newlength{\cvlabelwidth}
+\newlength{\cvdatewidth}
+\newcommand{\cvdatedline}[2]{%
+  \settowidth{\cvlabelwidth}{#1}%
+  \settowidth{\cvdatewidth}{#2}%
+  \ifdim\dimexpr\cvlabelwidth+\cvdatewidth+1.5em\relax>\linewidth
+    #1\par\nopagebreak
+    \hfill #2\par\nopagebreak
+  \else
+    #1\hfill #2\par\nopagebreak
+  \fi
+}
+
+% Arguments: employer, role, dates, employment type/location.
+\newcommand{\experienceentry}[4]{%
+  \par\addvspace{6pt}\Needspace{5\baselineskip}
+  \cvdatedline{\textbf{#1 --- #2}}{\textbf{#3}}
+  #4\par\nopagebreak
+}
+
+% Arguments: project title, context, dates.
+\newcommand{\projectentry}[3]{%
+  \par\addvspace{6pt}\Needspace{5\baselineskip}
+  \cvdatedline{\textbf{#1}}{\textbf{#3}}
+  #2\par\nopagebreak
+}
+\newcommand{\workproject}[1]{%
+  \par\addvspace{3pt}\Needspace{3\baselineskip}
+  \textit{#1}\par\nopagebreak
+}
+\newenvironment{cvbullets}{%
+  \begin{itemize}[leftmargin=14pt,label=\textbullet,
+    labelsep=5pt,itemsep=1.5pt,parsep=0pt,topsep=2.5pt,partopsep=0pt]
+}{\end{itemize}}
+\newcommand{\skillline}[2]{\textbf{#1:} #2\par\addvspace{2pt}}
